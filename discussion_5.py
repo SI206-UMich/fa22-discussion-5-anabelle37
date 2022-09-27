@@ -38,15 +38,24 @@ class Warehouse:
 
 	# Adds an item to the warehouse	
 	def add_item(self, item):
-		pass
+		self.items.append(item)
 
 	# Returns the item in the warehouse with the most stock		
 	def get_max_stock(self):
-		pass
+		stock=0
+		for item in self.items:
+			if item.stock > stock:
+				stock= item.stock
+		return stock
+
 	
 	# Returns the item in the warehouse with the highest price
 	def get_max_price(self):
-		pass	
+		maxVal=0
+		for item in self.items:
+			if item.price > maxVal:
+				maxVal=item.price
+		return maxVal	
 
 
 
@@ -63,7 +72,7 @@ class TestAllMethods(unittest.TestCase):
 
 	## Check to see whether count_a works
 	def test_count_a(self):
-		pass
+		self.assertEquals(2, count_a("Anabelle"))
 
 
 	## Check to see whether you can add an item to the warehouse
